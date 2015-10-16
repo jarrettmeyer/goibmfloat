@@ -24,10 +24,7 @@ var golden = []readTest{
 func TestFloat64(t *testing.T) {
 	for i := 0; i < len(golden); i++ {
 		g := golden[i]
-		result, err := Float64(g.bytes)
-		if err != nil {
-			t.Fatalf("%s", err)
-		}
+		result := Float64(g.bytes)
 		if math.Abs(result-g.number) > tolerance {
 			t.Fatalf("ToFloat64: want %f, got %f.", g.number, result)
 		}
